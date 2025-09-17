@@ -4,6 +4,34 @@
 // Este código inicial serve como base para o desenvolvimento do sistema de movimentação das peças de xadrez.
 // O objetivo é utilizar estruturas de repetição e funções para determinar os limites de movimentação dentro do jogo.
 
+
+
+void MoverTorre( int n){
+
+    if(n > 0){
+        printf("Torre move: Direira\n");
+
+        MoverTorre(n - 1);
+    }
+
+}
+
+
+void MoverBispo(int n){
+    if(n > 0){
+        printf("Bispo move: Cima\n");
+        printf("Bispo move: Direita\n");
+        MoverBispo(n - 1);
+    }
+}
+
+void MoverRainha(int n){
+    if(n > 0){
+        printf("Rainha move: Esquerda\n");
+        MoverRainha( n - 1);
+    }
+}
+
 int main() {
     // Nível Novato - Movimentação das Peças
     // Sugestão: Declare variáveis constantes para representar o número de casas que cada peça pode se mover.
@@ -23,22 +51,12 @@ int main() {
     int rainha_mov = 8;
 
     int iniciailizador = 0 ;
-    while ( iniciailizador < torre_mov)
-    {
-        printf("Torre move: Direita\n");
-        iniciailizador++;
-    }
+   
+    MoverTorre(torre_mov);
     printf("\n");
-    int x = 0 ;
-    do{
-        printf("Bispo move: Cima\n");
-        printf("Bispo move: Direita\n");
-        x++;
-    }while(x < bispo_mov);
+    MoverBispo(bispo_mov);
     printf("\n");
-    for(int i = 0 ; i < rainha_mov; i++){
-        printf("Rainha move: Esquerda\n");
-    }
+    MoverRainha(rainha_mov);
 
 
     printf("\n");
